@@ -14,12 +14,12 @@ namespace EF_API_Marvel
     public class Program
     {
         static DbApiContext db = new DbApiContext();
-        public static async void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddDbContext<DbApiContext>(options => options.UseSqlServer("data source=labVMH8OX\\SQLEXPRESS;initial catalog=dbAPI;integrated Security=True; Encrypt=False;"));
-
+            
 
             #region Set up region
             builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DbApiContext>().AddDefaultTokenProviders();
